@@ -43,3 +43,12 @@ void Student::showStudent() {
 	cout << "Groupnumber: " << groupnumber<< endl;
 }
 
+const char * Student::getfirstname() {
+	return firstname;
+}
+const char* Student::getlastname() {
+	return lastname;
+}
+const char* Student::getfathername() {
+	return fathername;
+}
