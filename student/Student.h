@@ -40,8 +40,11 @@ public:
 	void setSchoolinfo(const char* sn, const char* c, const char* co);
 	void setGroupnumber(int gn);
 	void showStudent();
-	const char* getfirstname();
-	const char* getlastname();
-	const char* getfathername();
-	int getBirthday();
+	const char* getFirstname();
+	const char* getLastname();
+	const char* getFathername();
+	Birthday getBirthday();
+	const char* getMobilenumber();
+	School getSchoolinfo();
+	int getGroupnumber();
 };

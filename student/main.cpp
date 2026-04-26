@@ -12,4 +12,7 @@ int main() {
 	s.setSchoolinfo("Itstep", "Kiev", "Ukraine");
 	s.setGroupnumber(34353);
 	s.showStudent();
+	cout << s.getFathername()<<endl;
+	s.getBirthday();
+	
 }
