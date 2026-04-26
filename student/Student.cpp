@@ -1,6 +1,6 @@
 #include "Student.h"
 #include <cstring>
-
+int Student::count=0;
 void Student::setFirstname(const char* fn) {
 	strcpy_s(firstname, 25, fn);
 }
@@ -64,6 +64,10 @@ Student::School Student::getSchoolinfo() {
 int Student::getGroupnumber() {
 	return groupnumber;
 }
+int Student::getCount() {
+	return count;
+}
+
 Student::Student() {
 	strcpy_s(firstname, "-");
 	strcpy_s(lastname, "-");
@@ -79,7 +83,9 @@ Student::Student() {
 	strcpy_s(school.schoolname, "-");
 
 	groupnumber = 0;
+	count++;
 }
 Student::~Student() {
 	cout << "detructed";
+	count--;
 }

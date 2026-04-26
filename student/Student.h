@@ -5,6 +5,8 @@ using namespace std;
 class Student
 {
 private:
+	static int count;
+
 	char firstname[25];
 	char lastname[25];
 	char fathername[25];
@@ -39,7 +41,9 @@ public:
 	void setMobilenumber(const char* mn);
 	void setSchoolinfo(const char* sn, const char* c, const char* co);
 	void setGroupnumber(int gn);
+
 	void showStudent();
+
 	const char* getFirstname();
 	const char* getLastname();
 	const char* getFathername();
@@ -47,6 +51,8 @@ public:
 	const char* getMobilenumber();
 	School getSchoolinfo();
 	int getGroupnumber();
+	int getCount();
+
 	Student();
 	~Student();
 };

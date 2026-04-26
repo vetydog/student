@@ -14,5 +14,6 @@ int main() {
 	s.showStudent();
 	cout << s.getFathername()<<endl;
 	s.getBirthday();
-	
+
+	cout << s.getCount() << endl;
 }
