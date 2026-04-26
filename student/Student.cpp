@@ -64,3 +64,22 @@ Student::School Student::getSchoolinfo() {
 int Student::getGroupnumber() {
 	return groupnumber;
 }
+Student::Student() {
+	strcpy_s(firstname, "-");
+	strcpy_s(lastname, "-");
+	strcpy_s(fathername, "-");
+
+	birthday.date = 0;
+	birthday.month = 0;
+	birthday.year = 0;
+
+	strcpy_s(mobilenumber, "-");
+	strcpy_s(school.city, "-");
+	strcpy_s(school.country, "-");
+	strcpy_s(school.schoolname, "-");
+
+	groupnumber = 0;
+}
+Student::~Student() {
+	cout << "detructed";
+}

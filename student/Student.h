@@ -47,4 +47,6 @@ public:
 	const char* getMobilenumber();
 	School getSchoolinfo();
 	int getGroupnumber();
+	Student();
+	~Student();
 };
