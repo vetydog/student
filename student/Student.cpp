@@ -34,7 +34,7 @@ void Student::setGroupnumber(int gn) {
 }
 
 void Student::showStudent() {
-	cout << "fistname: " << firstname << endl;
+	cout << "firstname: " << firstname << endl;
 	cout << "lastname: " << lastname << endl;
 	cout << "fathername: " << fathername << endl;
 	cout << "Birthday: " << birthday.date <<" " << birthday.month<<" "<< birthday.year << endl;
@@ -67,6 +67,135 @@ int Student::getGroupnumber() {
 int Student::getCount() {
 	return count;
 }
+
+void Student::saveToFile(string filename) {
+	ofstream fout(filename);
+
+	if (!fout) {
+		cout << "Couldn't open" << endl;
+		return;
+	}
+
+	fout << firstname << endl;
+	fout << lastname << endl;
+	fout << fathername << endl;
+
+	fout << birthday.date << endl;
+	fout << birthday.month << endl;
+	fout << birthday.year << endl;
+
+	fout << mobilenumber << endl;
+
+	fout << school.city << endl;
+	fout << school.country << endl;
+	fout << school.schoolname << endl;
+
+	fout << groupnumber << endl;
+
+	fout.close();
+
+	cout << "Saved!" << endl;
+}
+
+void Student::loadFromFile(string filename) {
+	ifstream fin(filename);
+
+	if (!fin) {
+		cout << "Couldn't open" << endl;
+		return;
+	}
+
+	fin.getline(firstname, 25);
+	fin.getline(lastname, 25);
+	fin.getline(fathername, 25);
+
+	fin >> birthday.date;
+	fin >> birthday.month;
+	fin >> birthday.year;
+
+	fin.ignore();
+
+	fin.getline(mobilenumber, 25);
+
+	fin.getline(school.city, 25);
+	fin.getline(school.country, 25);
+	fin.getline(school.schoolname, 25);
+
+	fin >> groupnumber;
+
+	fin.close();
+
+	cout << "Loaded!" << endl;
+}
+
+void Student::EditInfo(string filename) {
+	loadFromFile(filename);
+
+	int choice;
+	cout << "What do you want to edit?\n";
+	cout << "1 - Name\n";
+	cout << "2 - Birthday\n";
+	cout << "3 - Mobile\n";
+	cout << "4 - School\n";
+	cout << "5 - Groupnumber\n";
+	cout << "Choice: ";
+
+	cin >> choice;
+	cin.ignore();
+
+	switch (choice) {
+	case 1:
+		cout << "New firstname: ";
+		cin.getline(firstname, 25);
+
+		cout << "New lastname: ";
+		cin.getline(lastname, 25);
+
+		cout << "New fathername: ";
+		cin.getline(fathername, 25);
+		break;
+
+	case 2:
+		cout << "New day: ";
+		cin >> birthday.date;
+
+		cout << "New month: ";
+		cin >> birthday.month;
+
+		cout << "New year: ";
+		cin >> birthday.year;
+		break;
+
+	case 3:
+		cout << "New mobile: ";
+		cin.ignore();
+		cin.getline(mobilenumber, 25);
+		break;
+
+	case 4:
+		cout << "New City: ";
+		cin.getline(school.city, 25);
+
+		cout << "New Country: ";
+		cin.getline(school.country, 25);
+
+		cout << "New Schoolname: ";
+		cin.getline(school.schoolname, 25);
+
+	case 5:
+		cout << "New groupnumber: ";
+		cin >> groupnumber;
+		break;
+
+	default:
+		cout << "Wrong!" << endl;
+		return;
+	}
+
+	saveToFile(filename);
+	cout << "Edited" << endl;
+	}
+
 
 Student::Student() {
 	strcpy_s(firstname, "-");

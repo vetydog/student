@@ -1,5 +1,8 @@
 #pragma once
 #include <iostream>
+#include <fstream>
+#include <string>
+
 using namespace std;
 
 class Student
@@ -52,6 +55,9 @@ public:
 	School getSchoolinfo();
 	int getGroupnumber();
 	int getCount();
+	void saveToFile(string filename);
+	void loadFromFile(string filename);
+	void EditInfo(string filename);
 
 	Student();
 	~Student();

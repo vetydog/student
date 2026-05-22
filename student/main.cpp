@@ -1,9 +1,8 @@
-#include <iostream>
 #include "Student.h"
 using namespace std;
 
 int main() {
-	Student s;
+	Student s,s2;
 	s.setFirstname("Ivan");
 	s.setLastname("Boyko");
 	s.setFathername("Ivanovich");
@@ -16,4 +15,11 @@ int main() {
 	s.getBirthday();
 
 	cout << s.getCount() << endl;
+
+	s.saveToFile("students.txt");
+
+	s2.loadFromFile("students.txt");
+	s2.showStudent();
+	s2.EditInfo("student.txt");
+	s2.showStudent();
 }
